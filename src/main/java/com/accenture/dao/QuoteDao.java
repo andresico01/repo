@@ -18,9 +18,9 @@ public class QuoteDao extends GenericDao{
         return query.getResultList();
     }
 
-    public Object idFind(Quote quote) {
+    public Quote idFind(Integer idQuote) {
         em = getEntityManager();
-        return em.find(Quote.class,quote.getIdQuote());
+        return em.find(Quote.class,idQuote);
 
 
     }
@@ -33,10 +33,6 @@ public class QuoteDao extends GenericDao{
             em.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace(System.out);
-        }finally {
-            if(em != null){
-                em.close();
-            }
         }
     }
 
@@ -51,10 +47,6 @@ public class QuoteDao extends GenericDao{
             em.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace(System.out);
-        }finally {
-            if(em != null){
-                em.close();
-            }
         }
     }
 

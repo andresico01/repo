@@ -10,15 +10,15 @@ public class InstanceDao extends GenericDao{
 
     public List<Instance> list() {
         String consult = "SELECT i FROM Instance i";
-        em = getEntityManager();
-        Query query = em.createQuery(consult);
-        return query.getResultList();
+            em = getEntityManager();
+            Query query = em.createQuery(consult);
+            return query.getResultList();
+
     }
 
-    public Object idFind(Instance instance) {
-        em = getEntityManager();
-        return em.find(Instance.class,instance.getIdInstancia());
-
+    public Instance idFind(Integer idInstance) {
+            em = getEntityManager();
+            return em.find(Instance.class,idInstance);
 
     }
 
@@ -51,6 +51,7 @@ public class InstanceDao extends GenericDao{
         }finally {
             if(em != null){
                 em.close();
+
             }
         }
     }

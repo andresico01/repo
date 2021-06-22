@@ -1,5 +1,7 @@
 package com.accenture.hibernate;
 
+import org.hibernate.annotations.CollectionId;
+
 import javax.persistence.*;
 import java.io.Serializable;
 import java.util.Objects;
@@ -11,7 +13,7 @@ public class Instance implements Serializable {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    @Column(name = "id_instancia")
+    @Column(name = "id_instance")
     private Integer idInstancia;
 
     @JoinColumn(name = "id_quote",referencedColumnName = "id_quote")
@@ -55,9 +57,10 @@ public class Instance implements Serializable {
         return idInstancia;
     }
 
-    public Quote getQuoteNumeber() {
+    public Quote getQuoteNumber() {
         return quoteNumber;
     }
+
 
     public String getType() {
         return type;
@@ -82,9 +85,10 @@ public class Instance implements Serializable {
 
     @Override
     public String toString() {
+
         return "Instance{" +
                 "idInstancia=" + idInstancia +
-                ", quoteNumeber=" + quoteNumber +
+                ", idQuote=" + quoteNumber.getIdQuote() +
                 ", type='" + type + '\'' +
                 ", offNet=" + offNet +
                 '}';

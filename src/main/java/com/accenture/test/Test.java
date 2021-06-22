@@ -1,31 +1,34 @@
 package com.accenture.test;
 
 
+import com.accenture.dao.InstanceDao;
 import com.accenture.dao.QuoteDao;
 
 import java.util.List;
 
 public class Test {
     public static void main(String[] args) {
-        System.out.println("Instancia");
+        System.out.println("Inicio");
         try{
+            System.out.println("Quote");
+            QuoteDao quoteDao = new QuoteDao();
+            print(quoteDao.list());
 
-        QuoteDao quoteDao = new QuoteDao();
 
+            System.out.println("Instancia");
+            InstanceDao instanceDao = new InstanceDao();
+            print(instanceDao.list());
 
-
-        print(quoteDao.list());
         }catch (Exception e){
             e.printStackTrace(System.out);
         }
     }
 
     private static void  print(List collection){
-
-        for (Object obj : collection){
-            System.out.println("valor :"+obj);
+        for (Object aux: collection) {
+            System.out.println(aux.toString());
         }
 
-
     }
+
 }

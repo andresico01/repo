@@ -2,7 +2,9 @@ package com.accenture.hibernate;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.time.LocalDate;
 import java.util.BitSet;
+import java.util.Date;
 import java.util.List;
 import java.util.Objects;
 
@@ -19,13 +21,13 @@ public class Quote implements Serializable {
     private String orderNumber;
 
     @Column(name = "create_date")
-    private  String createDate;
+    private LocalDate createDate;
 
     @Column(name = "tdg")
-    private boolean TDG;
+    private boolean TDG = true;
 
     @Column(name = "use_date")
-    private String useDate;
+    private LocalDate useDate;
 
     @OneToMany(mappedBy = "quoteNumber")
     private List<Instance> instances;
@@ -36,6 +38,7 @@ public class Quote implements Serializable {
 
     }
     public Quote(Integer idQuote) {
+
         this.idQuote = idQuote;
     }
 
@@ -51,7 +54,7 @@ public class Quote implements Serializable {
         this.orderNumber = orderNumber;
     }
 
-    public void setCreateDate(String createDate) {
+    public void setCreateDate(LocalDate createDate) {
         this.createDate = createDate;
     }
 
@@ -59,7 +62,7 @@ public class Quote implements Serializable {
         this.TDG = TDG;
     }
 
-    public void setUseDate(String useDate) {
+    public void setUseDate(LocalDate useDate) {
         this.useDate = useDate;
     }
 
@@ -76,7 +79,7 @@ public class Quote implements Serializable {
     }
 
     public String getCreateDate() {
-        return createDate;
+        return createDate.toString();
     }
 
     public boolean isTDG() {
@@ -84,7 +87,7 @@ public class Quote implements Serializable {
     }
 
     public String getUseDate() {
-        return useDate;
+        return useDate.toString();
     }
 
     public List<Instance> getInstances() {
