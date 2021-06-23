@@ -16,8 +16,8 @@ public class Instance implements Serializable {
     @Column(name = "id_instance")
     private Integer idInstancia;
 
-    @JoinColumn(name = "id_quote",referencedColumnName = "id_quote")
     @ManyToOne
+    @JoinColumn(name = "id_quote",referencedColumnName = "id_quote")
     private Quote quoteNumber;
 
     private String type;

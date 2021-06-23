@@ -29,7 +29,7 @@ public class Quote implements Serializable {
     @Column(name = "use_date")
     private LocalDate useDate;
 
-    @OneToMany(mappedBy = "quoteNumber")
+    @OneToMany(mappedBy = "quoteNumber", cascade = CascadeType.ALL )
     private List<Instance> instances;
 
 

@@ -50,5 +50,11 @@ public class QuoteDao extends GenericDao{
         }
     }
 
+    public void close(){
+        if (em != null){
+            em.close();
+        }
+    }
+
 
 }
