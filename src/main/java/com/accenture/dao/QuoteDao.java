@@ -33,11 +33,8 @@ public class QuoteDao extends GenericDao{
             em.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace(System.out);
-        }finally {
-            if(em != null){
-                em.close();
-            }
         }
+        
     }
 
 
@@ -51,12 +48,13 @@ public class QuoteDao extends GenericDao{
             em.getTransaction().commit();
         }catch (Exception e){
             e.printStackTrace(System.out);
-        }finally {
-            if(em != null){
-                em.close();
-            }
         }
     }
 
+    public void close(){
+            if(em != null){
+                em.close();
+            }
+    }
 
 }
